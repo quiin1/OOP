@@ -28,9 +28,12 @@ public class Solution {
     }
 
     /**
-     * Constructor 1.
+     * Constructor with numerator.
+     *
+     * @param numerator cst.
      */
-    public Solution() {
+    public Solution(int numerator) {
+        this.numerator = numerator;
     }
 
     /**
@@ -52,11 +55,14 @@ public class Solution {
      * @return fraction after reduce.
      */
     public Solution reduce() {
-        Solution res = new Solution(this.numerator, this.denominator);
+        if (this.numerator * this.denominator < 0) {
+            this.numerator = -Math.abs(this.numerator);
+            this.denominator = Math.abs(this.denominator);
+        }
         int ucln = gcd(this.numerator, this.denominator);
         this.numerator /= ucln;
         this.denominator /= ucln;
-        return res;
+        return this;
     }
 
     /**
@@ -100,8 +106,9 @@ public class Solution {
         int bcnn = lcm(this.denominator, s.denominator);
         int a = bcnn / this.denominator;
         int b = bcnn / s.denominator;
-        Solution res = new Solution(this.numerator * a + s.numerator * b, bcnn);
-        return res.reduce();
+        this.numerator = this.numerator * a + s.numerator * b;
+        this.denominator = bcnn;
+        return reduce();
     }
 
     /**
@@ -120,8 +127,10 @@ public class Solution {
      * @param s .
      */
     public Solution multiply(Solution s) {
-        Solution res = new Solution(this.numerator * s.numerator, this.denominator * s.denominator);
-        return res.reduce();
+        s.reduce(); // cho dau - len tu neu co
+        this.numerator = this.numerator * s.numerator;
+        this.denominator = this.denominator * s.denominator;
+        return reduce();
     }
 
     /**
@@ -143,16 +152,14 @@ public class Solution {
      * is 2 obj is 2 equal fraction?.
      *
      * @param obj .
-     * @return
+     * @return .
      */
     public boolean equals(Object obj) {
         if (obj instanceof Solution) {
             Solution other = (Solution) obj;
             Solution f = this.reduce();
-            other = other.reduce();
-            if (f.numerator == other.numerator && f.denominator == other.denominator) {
-                return true;
-            }
+            other.reduce();
+            return f.numerator == other.numerator && f.denominator == other.denominator;
         }
         return false;
     }
@@ -163,17 +170,28 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution s = new Solution(1, 0);
-        Solution f = new Solution(1, 10);
-//        System.out.println(s.numerator + " / " + s.denominator);
-//        s.setNumerator(0);
-//        s.setDenominator(0);
-//        System.out.println(s.numerator + " / " + s.denominator);
-//        s.setNumerator(0);
-//        s.setDenominator(0);
-//        System.out.println(s.numerator + " / " + s.denominator);
+        Solution f = new Solution(1, 1);
+        s.print();
+        s.setNumerator(0);
+        s.setDenominator(0);
+        s.print();
+        s.setNumerator(0);
+        s.setDenominator(0);
+        s.print();
+        f.print();
 
-//        System.out.println(s.numerator + " / " + s.denominator);
-//        System.out.println(f.numerator + " / " + f.denominator);
-//        System.out.println(s.equals(f));
+        Solution frac = new Solution(6, -8);
+        frac.reduce();
+        frac.print();
+        frac.subtract(new Solution(7, 5));
+        frac.print();
+        frac.add(new Solution(14, 11));
+        frac.print();
+        frac.multiply(new Solution(2, 7));
+        frac.print();
+        frac.divide(new Solution(9, -770));
+        frac.print();
+        System.out.println(frac.equals(new Solution(386, 18)));
+        System.out.println(frac.equals(new Solution(-386, 18)));
     }
 }

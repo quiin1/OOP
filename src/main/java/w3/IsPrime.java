@@ -1,6 +1,6 @@
 package w3;
 
-public class isPrime {
+public class IsPrime {
     /**
      * is a integer a prime?.
      * @param n .
@@ -16,5 +16,9 @@ public class isPrime {
             }
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isPrime(231));
     }
 }

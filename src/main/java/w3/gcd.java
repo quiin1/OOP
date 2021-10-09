@@ -13,7 +13,7 @@ public class gcd {
      * @param y .
      * @return gcd(a, b).
      */
-    public static int gcd(int x, int y) {
+    public static int gcd0(int x, int y) {
         long a = Math.abs((long) x); // ! must have (long) int abs()
         long b = Math.abs((long) y); // because Math.abs(n) -> data with the same as n's data type
         //                              but abs(intMin) > intMax, and belong to long data type
@@ -30,7 +30,7 @@ public class gcd {
         return (int) b;
     }
 
-    public static int gcd1(int a, int b) { // may cho cach nay qua dc test case oasis 1 cach vi dieu :))
+    public static int gcd1(int a, int b) { //////////////////////////////////////////////////////////////////////////////////////////// may cho cach nay qua dc test case oasis 1 cach vi dieu :))
         a = Math.abs(a);
         b = Math.abs(b);
         if (b == 0) {

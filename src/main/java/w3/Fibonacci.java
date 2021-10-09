@@ -4,8 +4,8 @@ public class Fibonacci {
     /**
      * compute the fibonacci of $n.
      *
-     * @param n
-     * @return
+     * @param n .
+     * @return .
      */
     public static long fibonacci(long n) {
         long fiboN1 = 0; // n=0
@@ -43,6 +43,8 @@ public class Fibonacci {
     }
 
     public static void main(String[] args) {
-
+        for (int i=1; i<=7; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
     }
 }
