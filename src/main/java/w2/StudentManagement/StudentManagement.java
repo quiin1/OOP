@@ -11,10 +11,7 @@ public class StudentManagement {
      */
     public static boolean sameGroup(Student s1, Student s2) {
         // TODO:
-        if (s1.getGroup().equals(s2.getGroup())) {
-            return true;
-        }
-        return false;
+        return s1.getGroup().equals(s2.getGroup());
     }
 
     /**
@@ -39,11 +36,11 @@ public class StudentManagement {
         }
         int pos = 0;
         int countFinished = 0;
-        String res = "";
+        StringBuilder res = new StringBuilder();
 
         while (pos < count && countFinished < count) {
             // ten lop va sinh vien dau tien
-            res += students[pos].getGroup() + "\n" + students[pos].getInfo() + "\n";
+            res.append(students[pos].getGroup()).append("\n").append(students[pos].getInfo()).append("\n");
             finished[pos] = true;
             countFinished++;
 
@@ -51,7 +48,7 @@ public class StudentManagement {
             for (int j = pos + 1; j < count; j++) {
 
                 if (!finished[j] && sameGroup(students[pos], students[j])) {
-                    res += students[j].getInfo() + "\n";
+                    res.append(students[j].getInfo()).append("\n");
                     finished[j] = true;
                     countFinished++;
                 }
@@ -65,7 +62,7 @@ public class StudentManagement {
             }
         }
 
-        return res;
+        return res.toString();
     }
 
     /**
@@ -75,29 +72,27 @@ public class StudentManagement {
         // TODO:
         for (int i = 0; i < count; i++) {
             if (students[i].getId().equals(id)) {
-                for (int j = i; j < count - 1; j++) {
-                    students[j] = students[j + 1];
-                }
+                if (count - 1 - i >= 0) System.arraycopy(students, i + 1, students, i, count - 1 - i);
                 count--;
                 break;
             }
         }
     }
 
-//    public static void main(String[] args) {
-//        Student student1 = new Student("Nguyen Van An", "17020001", "17020001@vnu.edu.vn");
-//        student1.setGroup("K62CC");
-//        Student student2 = new Student("Nguyen Van B", "17020002", "17020002@vnu.edu.vn");
-//        student2.setGroup("K62CC");
-//        Student student3 = new Student("Nguyen Van C", "17020003", "17020003@vnu.edu.vn");
-//        Student student4 = new Student("Nguyen Van D", "17020004", "17020004@vnu.edu.vn");
-//
-//        StudentManagement uet = new StudentManagement();
-//        uet.addStudent(student1);
-//        uet.addStudent(student2);
-//        uet.addStudent(student3);
-//        uet.addStudent(student4);
-//        System.out.println("UET has " + uet.count + " students: ");
-//        System.out.println(uet.studentsByGroup());
-//    }
+    public static void main(String[] args) {
+        Student student1 = new Student("Nguyen Van An", "17020001", "17020001@vnu.edu.vn");
+        student1.setGroup("K62CC");
+        Student student2 = new Student("Nguyen Van B", "17020002", "17020002@vnu.edu.vn");
+        student2.setGroup("K62CC");
+        Student student3 = new Student("Nguyen Van C", "17020003", "17020003@vnu.edu.vn");
+        Student student4 = new Student("Nguyen Van D", "17020004", "17020004@vnu.edu.vn");
+
+        StudentManagement uet = new StudentManagement();
+        uet.addStudent(student1);
+        uet.addStudent(student2);
+        uet.addStudent(student3);
+        uet.addStudent(student4);
+        System.out.println("UET has " + uet.count + " students: ");
+        System.out.println(uet.studentsByGroup());
+    }
 }
