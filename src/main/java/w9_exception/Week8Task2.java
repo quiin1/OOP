@@ -1,3 +1,5 @@
+package w9_exception;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -103,6 +105,7 @@ public class Week8Task2 {
     public static void main(String[] args) throws IOException {
         Week8Task2 test = new Week8Task2();
         System.err.println(test.nullPointerExTest());
+        System.err.println(test.arithmeticExTest());
         System.err.println(test.arrayIndexOutOfBoundsExTest());
         System.err.println(test.fileNotFoundExTest());
         System.err.println(test.ioExTest());

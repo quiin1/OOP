@@ -1,3 +1,5 @@
+package w9_exception;
+
 public class Square extends Expression {
     private Expression expression;
 

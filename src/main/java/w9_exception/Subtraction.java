@@ -1,3 +1,5 @@
+package w9_exception;
+
 public class Subtraction extends BinaryExpression {
 
     public Subtraction(Expression left, Expression right) {

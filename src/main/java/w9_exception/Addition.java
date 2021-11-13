@@ -1,3 +1,5 @@
+package w9_exception;
+
 public class Addition extends BinaryExpression {
     public Addition(Expression left, Expression right) {
         super(left, right);

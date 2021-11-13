@@ -1,3 +1,5 @@
+package w9_exception;
+
 public class Division extends BinaryExpression {
     public Division(Expression left, Expression right) {
         super(left, right);

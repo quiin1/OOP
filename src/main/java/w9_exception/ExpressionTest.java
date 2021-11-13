@@ -1,3 +1,5 @@
+package w9_exception;
+
 public class ExpressionTest {
     /**
      * (10^2 + -3 + 5*-3)^2
@@ -14,5 +16,10 @@ public class ExpressionTest {
 
         System.out.println(sq);
         System.out.println(sq.evaluate());
+
+        Expression a1 = new Numeral(10);
+        Expression b1 = new Numeral(0);
+        Expression div = new Division(a1, b1);
+        System.out.println(div.evaluate());
     }
 }

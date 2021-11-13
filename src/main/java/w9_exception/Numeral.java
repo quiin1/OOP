@@ -1,3 +1,5 @@
+package w9_exception;
+
 public class Numeral extends Expression {
     private double value;
 
