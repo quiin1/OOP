@@ -1,6 +1,8 @@
+package w11_method_signature;
+
 import java.util.*;
 
-public class Test {
+public class w11_method_signature.Test {
     public static List<String> getAllFunctions2(String fileContent) {
         List<String> list = new ArrayList<>();
         HashMap<String, Integer> dataTypes = new HashMap<>();
@@ -2938,14 +2940,14 @@ public class Test {
                   }
                 }
                 """;
-//        List<String> list0 = Week10.getAllFunctions(s1);
-//        List<String> list1 = Week10.getAllFunctions(test_RandomDateUtils);
-//        List<String> list2 = Week10.getAllFunctions(test_DateUtils);
-//        List<String> list3 = Week10.getAllFunctions(test_PathUtils);
-//        List<String> list4 = Week10.getAllFunctions(test_RandomArrayUtils);
-//        List<String> list5 = Week10.getAllFunctions(test_VolumeInfo);
-//        List<String> list6 = Week10.getAllFunctions(test_OSInfo);
-//        List<String> list7 = Week10.getAllFunctions(test_DatabaseUtils);
+//        List<String> list0 = w11_method_signature.Week10.getAllFunctions(s1);
+//        List<String> list1 = w11_method_signature.Week10.getAllFunctions(test_RandomDateUtils);
+//        List<String> list2 = w11_method_signature.Week10.getAllFunctions(test_DateUtils);
+//        List<String> list3 = w11_method_signature.Week10.getAllFunctions(test_PathUtils);
+//        List<String> list4 = w11_method_signature.Week10.getAllFunctions(test_RandomArrayUtils);
+//        List<String> list5 = w11_method_signature.Week10.getAllFunctions(test_VolumeInfo);
+//        List<String> list6 = w11_method_signature.Week10.getAllFunctions(test_OSInfo);
+//        List<String> list7 = w11_method_signature.Week10.getAllFunctions(test_DatabaseUtils);
         List<String> list = Week10.getAllFunctions(test_RandomArrayUtils);
         for (String signature : list) {
 //            System.out.print(signature + ", ");
