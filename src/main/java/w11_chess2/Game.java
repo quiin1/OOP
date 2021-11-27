@@ -1,4 +1,4 @@
-package w10_chess1;
+package w11_chess2;
 
 import java.util.ArrayList;
 
@@ -25,7 +25,7 @@ public class Game {
         int oldY = piece.getCoordinatesY();
 
         if (piece.canMove(board, x, y)) {
-            Move move = null;
+            Move move;
             piece.setCoordinatesX(x);
             piece.setCoordinatesY(y);
             if (board.getAt(x, y) == null) {
@@ -52,22 +52,19 @@ public class Game {
 
     // /*
     public static void main(String[] args) {
-        Piece R1 = new Rook(2, 5);
-        Piece R2 = new Rook(1, 8);
-        Piece R3 = new Rook(1, 8);
-        Piece R = new Rook(2, 6, BLACK);
         Board board = new Board();
-        board.addPiece(R1);
-        System.out.println(board.getPieces().size());
-        board.addPiece(R2);
-        System.out.println(board.getPieces().size());
-        board.addPiece(R3);
-        System.out.println(board.getPieces().size());
-        board.addPiece(R);
-        System.out.println(R1.canMove(board, 2, 6));
-
         Game game = new Game(board);
-        game.movePiece(R1, 2, 6);
+
+        Bishop B1 = new Bishop(2, 2);
+        Bishop B2 = new Bishop(7, 7, BLACK);
+        board.addPiece(B1);
+        board.addPiece(B2);
+        System.out.println(B1.canMove(board, 7, 7));
+        game.movePiece(B1, 4, 5);
+        ArrayList<Move> his = game.getMoveHistory();
+        for (int i = 0; i < his.size(); i++) {
+            System.out.println(his.get(i));
+        }
     }
     // */
 }

@@ -1,8 +1,11 @@
 package w10_generic;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import static java.util.Arrays.asList;
 
 public class Week11<T> {
     /**
@@ -43,27 +46,24 @@ public class Week11<T> {
         }
     }
 
-//    /**
-//     * test client.
-//     *
-//     * @param args .
-//     */
-//    public static void main(String[] args) {
-//        Integer[] intArr1 = {10, 12, 3, -4, 5};
-//        Double[] douArr1 = {5.1, 2.5, 7.3, -4.5};
-//        String[] strArr1 = {"U", "E", "T", "V", "N", "U"};
-//
-//        List<Integer> intArr = new ArrayList<>(asList(intArr1));
-//        List<Double> douArr = new ArrayList<>(asList(douArr1));
-//        List<String> strArr = new ArrayList<>(asList(strArr1));
-//
-//        System.out.println("Mang intArr bao gom:");
-//        printArr(sortGeneric(intArr));
-//
-//        //        System.out.println("\nMang doubleArr bao gom:");
-//        //        printArr(douArr);
-//
-//        System.out.println("\nMang strArr bao gom:");
-//        printArr(sortGeneric(strArr));
-//    }
+    /**
+     * test client.
+     *
+     * @param args .
+     */
+    public static void main(String[] args) {
+        Integer[] intArr1 = {10, 12, 3, -4, 5};
+        Double[] douArr1 = {5.1, 2.5, 7.3, -4.5};
+        String[] strArr1 = {"U", "E", "T", "V", "N", "U"};
+
+        List<Integer> intArr = new ArrayList<>(asList(intArr1));
+        List<Double> douArr = new ArrayList<>(asList(douArr1));
+        List<String> strArr = new ArrayList<>(asList(strArr1));
+
+        System.out.println("Mang intArr bao gom:");
+        printArr(sortGeneric(intArr));
+
+        System.out.println("\nMang strArr bao gom:");
+        printArr(sortGeneric(strArr));
+    }
 }
